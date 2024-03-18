@@ -1,0 +1,10 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.main-head{
+  text-align: center;
+  color:rgb(126, 179, 239)
+}
