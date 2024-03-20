@@ -1,10 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap');
+
 *{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: "Kadwa", serif;
 }
+
 
 .main-head{
   text-align: center;
-  color:rgb(126, 179, 239)
+  color:#000000;
+  font-size: 36px;
+  font-weight: bold;
+}
+.navbar{
+  margin-bottom:10px;
+  background-color:#D9D9D9;
+}
+.sidebar{
+  height: 100vh;
+  width: 300px;
+  background-color: #D9D9D9;
+  position: absolute;
+  left: 60px;
+  
+}
+
+.main-sec{
+  position: absolute;
+  left: 360px;
+  border: none;
+  background-color: #fff;
+
+}
+
+.main-heading{
+  margin: 12px 0 0 12px;
+
+}
+.main-heading hr{
+  color:#000000;
+  width: 984px;
+}
+
+.main-heading h2{
+  font-size: 32px;
+  color:#000000;
+}
+
+.category{
+  color:#3CC1FA;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 12px 24px 12px 18px;
+  padding: 12px;
+  line-height: auto;
+  text-align: left;
+
+}
+.category-list ul li{
+  margin-left: 26px;
+  color:#3CC1FA;
+  margin-bottom: 16px;
+}
+
+.row{
+  display: grid;
+  grid-template-columns: repeat(4, 100px );
+}
+.col img{
+  height: 200px;
+  width: 160px;
+}
+
+.add-cart button{
+  background-color: #357EBD;
+  border: none; color: #428BCA;
+  color:#fff;
+  border-radius: 10px;
+  height: 54px;
+  width: 224px;
+}
+
+.book-title{
+  color:#4799F9;
+  font-size: 20px;
+}
+
+.price{
+  font-size: 20px;
+  color:#000000;
 }
