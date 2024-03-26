@@ -5,6 +5,7 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: "Kadwa", serif;
+  background-color: #D9D9D9;
 }
 
 
@@ -14,10 +15,37 @@
   font-size: 36px;
   font-weight: bold;
 }
+
+.main-bar{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.font-icon{
+  font-size: 24px;
+  color:#68b2f7;
+  position: relative;
+}
+
+.shopping-cart span{
+  position: absolute;
+  background-color: rgb(239, 99, 99);
+  border-radius: 50%;
+  top: 0px;
+  left: auto;
+  right: 2px;
+  color: #000000;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  z-index: 1;}
+
 .navbar{
   margin-bottom:10px;
   background-color:#D9D9D9;
 }
+
 .sidebar{
   height: 100vh;
   width: 300px;
@@ -65,9 +93,14 @@
   margin-bottom: 16px;
 }
 
+.category-list ul li:hover{
+  cursor: pointer;
+}
+
 .row{
   display: grid;
-  grid-template-columns: repeat(4, 100px );
+  grid-template-columns: repeat(4, 250px );
+  gap: 18px;
 }
 .col img{
   height: 200px;
@@ -91,4 +124,104 @@
 .price{
   font-size: 20px;
   color:#000000;
+}
+
+.login-page{
+  margin: 150px auto auto auto;
+  background-color: rgb(232, 230, 230);
+  text-align: center;
+  height: 280px;
+  width: 400px;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.login-username input{
+  padding: 8px;
+  border: 12px;
+  border: none;
+  width: 100%;
+  text-align: center;
+} 
+
+.login-passwd input{
+  padding: 8px;
+  border: 12px;
+  border: none;
+  width: 100%;
+  text-align: center;
+}
+
+.login-btn button{
+  background-color: #357EBD;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  width: 200px;
+  height: 40px;
+  margin: auto;
+  border: none;
+  color: #fff;
+
+}
+
+.login-btn button:hover{
+  background-color: #a9d3f8;
+}
+
+.link-to{
+  text-decoration: none;
+}
+
+.book-detail-sec{
+  background-color: #fff;
+  padding: 24px;
+}
+
+.book-bio{
+  display: grid;
+  grid-template-columns: repeat(2,1fr 2fr);
+  background-color: #fff;
+
+}
+
+.book-bio img{
+  float: left;
+  width: 500px;
+  height: 400px;
+  border: 1px solid red;
+}
+
+.book-metadata{
+  background-color: #fff;
+  padding: 12px;
+}
+
+.book-metadata h3{
+  background-color: #fff;
+}
+
+.book-price{
+  background-color: #fff;
+  color: rgb(159, 206, 89);
+  font-size: 32px;
+}
+.stock-available{
+  background-color: #fff;
+}
+
+span{
+  background-color: #fff;
+}
+
+.book-desc{
+  margin-top: 24px;
+  background-color: #fff;
+}
+
+.book-desc h2{
+  background-color: #fff;
+}
+
+.book-desc p{
+  background-color: #fff;
 }
