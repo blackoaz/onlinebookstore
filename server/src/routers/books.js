@@ -25,7 +25,6 @@ router.get('/:id', async (req, res) => {
     } catch (err) {
         console.log(err);
     }
-    res.send(`Getting book with ID ${id}`);
 });
 
 // add a book
@@ -39,7 +38,10 @@ router.post('/', async (req, res) => {
             sysnposis: req.body.sysnposis,
             rating: req.body.rating,
             publisher: req.body.publisher,
-            category: req.body.category
+            category: req.body.category,
+            quantity: req.body.quantity,
+            price: req.body.price
+
         });
         await Book.create(newBook);
         res.send({ "Message": "book added Successfuly" })

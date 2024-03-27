@@ -14,20 +14,20 @@ function App() {
   const isloggedIn = true;
 
   return (
-    <div>
-      <h1 className="main-head">ONLINE BOOK STORE</h1>
+    <>
+    {/* <h1 className="main-head">ONLINE BOOK STORE</h1> */}
       <Routes>
         {!isloggedIn ? (
           <Route path="/" element={<LoginPage />} />
         ) : (
           <>
           <Route path="/" element={<Home />} />
-          <Route path="/specificbook" element={<BookDetail />} />
+          <Route path="/specificbook/:bookId" element={<BookDetail />} />
           <Route path="/cart" element={<Shoppingcart />} />
           </>
         )}
       </Routes>
-    </div>
+    </>
   );
 }
 

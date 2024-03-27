@@ -15,28 +15,27 @@ export default function Sidebar() {
       })
       .then((result) => setCategories(result))
       .catch((error) => console.error('Error fetching data:', error));
-  }, []);
+  }, [categories]);
 
   return (
     <div>
-      <div className="sidebar">
-        <div>
+      <div className="container sidebar">
+        
           <div className='category'>
-            <>Books Category</>
+            <h4>Books Category</h4>
           </div>
 
           <div className='category-list'>
             {categories ? (
               <ul>
-                {categories.map((category) => (
-                  <li key={category.id}>{category.categoryName}</li>
+                {categories.map((category,id) => (
+                  <li key={id}>{category.categoryName}</li>
                 ))}
               </ul>
             ) : (
               <p>Loading data...</p>
             )}
           </div>
-        </div>
       </div>
     </div>
   );

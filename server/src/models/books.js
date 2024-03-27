@@ -21,7 +21,9 @@ const bookSchema = new Schema({
         max: 5,
         required: true
     },
+    price:{type:Number, required:true},
     publisher: String,
+    quantity:{type:Number, required:true},
     category: { type: Schema.Types.ObjectId, ref: 'Category' } // Foreign key reference to the Seller model
 },{
     timestamps: true

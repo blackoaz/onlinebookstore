@@ -6,10 +6,10 @@ import Main from './navbar/Main';
 
 function Home() {
   return (
-    <div>
-    <Navbar />
-    <Sidebar />
-    <Main />
+    <div className='home-sec'>
+      <div><Navbar /></div>
+      <div><Sidebar /></div>
+      <div><Main /></div>
     </div>
   )
 }

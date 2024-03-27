@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 
@@ -6,91 +6,66 @@ export default function Main() {
 
   const [books, setBooks] = useState([]);
 
-  const addingtoCart = ()=>{
+  useEffect(() => {
+    fetch('http://localhost:3001/api/books', {
+      method: 'GET',
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((result) => setBooks(result))
+      .catch((error) => console.error('Error fetching data:', error));
+  }, [books]);
+
+  const addingtoCart = () => {
     console.log("Item added to cart")
-  } 
+  }
+
+  function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    } else {
+      return text;
+    }
+  }
   return (
-    <div className='main-sec'>
-      <h1 className="main-head">ONLINE BOOK STORE</h1>
-      <div className='main-heading'>
-        <h2>ALL PRODUCTS</h2>
-        <hr />
-      </div>
+    <>
+      <div className='main-sec'>
+        <div className='main-heading'>
+          <h2>ALL PRODUCTS</h2>
+          <hr />
+        </div>
 
-      <div className='container text-center books-sec'>
-        <div className='row books'>
-          <div className='col'>
-            <Link to="/specificbook" className='link-to'>
-              <div>
-                <img src='../images/book1.jpeg' alt='attic-blank' />
+        <div className='container text-center books-sec'>
+          <div className='row books'>
+            {books ? books.map((book, _id) => (
+              <div className='col' key={_id}>
+                <Link to={`/specificbook/${book._id}`} className='link-to'>
+                  <div className='book-img'>
+                    <img src={book.image} alt='attic-blank' />
+                  </div>
+                  <div className='book-rating'>
+                    <span>Rating {book.rating}/5</span>
+                  </div>
+                  <span className='book-title'>{truncateText(book.name, 20)}</span>
+                  <div className='price'>
+                    <span>KSH.{book.price}</span>
+                  </div>
+                </Link>
+                <div className='add-cart'>
+                  <button onClick={addingtoCart}>ADD TO CART</button>
+                </div>
               </div>
-              <div>
-                <span></span>
-              </div>
-              <span className='book-title'>A Light in the Attic</span>
-              <div>
-                <span className='price'>KSH. 1000</span>
-              </div>
-              </Link>
-              <div className='add-cart'>
-                <button onClick={addingtoCart}>ADD TO CART</button>
-              </div>
-            
-          </div>
-
-
-          <div className='col'>
-            <div>
-              <img src='../images/book2.jpeg' alt='second-blank' />
-            </div>
-            <div>
-              <span></span>
-            </div>
-            <span className='book-title'>A Light in the Attic</span>
-            <div>
-              <span className='price'>KSH. 1000</span>
-            </div>
-            <div className='add-cart'>
-              <button>ADD TO CART</button>
-            </div>
-          </div>
-
-          <div className='col'>
-            <div>
-              <img src='../images/book2.jpeg' alt='second-blank' />
-            </div>
-            <div>
-              <span></span>
-            </div>
-            <span className='book-title'>A Light in the Attic</span>
-            <div>
-              <span className='price'>KSH. 1000</span>
-            </div>
-            <div className='add-cart'>
-              <button>ADD TO CART</button>
-            </div>
-          </div>
-
-          <div className='col'>
-            <div>
-              <img src='../images/book3.jpeg' alt='second-blank' />
-            </div>
-            <div>
-              <div>
-                <span></span>
-              </div>
-              <span className='book-title'>A Light in the Attic</span>
-              <div>
-                <span className='price'>KSH. 1000</span>
-              </div>
-              <div className='add-cart'>
-                <button>ADD TO CART</button>
-              </div>
-            </div>
+            )): <div>
+            <p>Loading data...</p>
+          </div> }   
           </div>
         </div>
-      </div>
 
-    </div>
+      </div>
+    </>
   )
 }

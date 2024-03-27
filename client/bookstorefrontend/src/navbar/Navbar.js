@@ -6,19 +6,15 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
-    <div>
-      <div className="container">
-          <div className="container-fluid navbar main-bar">
-            <div><a href='#'>Home</a></div>
-            <div className='shopping-cart'>
-              <span>1</span>
-              <Link to="/cart">
-              <FontAwesomeIcon icon={faCartShopping} className="font-icon"/>
-              </Link>
-              </div>
+    
+      <div className="container main-bar">
+        <div><a href='google.com'>Home</a></div>
+        <div className='shopping-cart'>
+          <span>1</span>
+          <Link to="/cart">
+          <FontAwesomeIcon icon={faCartShopping} className="font-icon"/>
+          </Link>
           </div>
       </div>
-
-    </div>
   )
 }
