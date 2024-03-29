@@ -275,19 +275,6 @@ span{
   background-color: #fff;
 }
 /* table css */
-/* .cart-items{
-  background-color: #fff;
-  padding: 24px;
-  width: 100%;
-  margin: auto;
-}
-
-.cart-items tbody{
-  margin: auto;
-  width: 100%;
-  border-collapse: collapse;
-} */
-
 .cart-items {
   background-color: #fff;
   padding: 24px;
@@ -296,23 +283,22 @@ span{
 
 table {
   width: 100%;
+  table-layout: auto; /* Adjusts column widths based on content */
   border-collapse: collapse;
-  margin: auto; 
-  text-align: center;
-  display: block;
 }
 
-table th, .table td {
+th, td {
   padding: 8px;
   border: 1px solid #ddd;
   text-align: left;
+  width: auto; /* Allows columns to adjust according to content */
 }
 
-table th {
+th {
   background-color: #f2f2f2;
 }
 
-table tbody tr:nth-child(even) {
+tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
@@ -330,3 +316,4 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+
