@@ -10,7 +10,7 @@ function BookDetail() {
     // Fetch book details based on bookId
     fetch(`http://localhost:3001/api/books/${bookId}`,{
       method:'GET'
-    })
+    })  
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -20,14 +20,12 @@ function BookDetail() {
       .then((result) => setBook(result))
       .catch((error) => console.error('Error fetching book details:', error));
   }, [bookId]);
-
   if (!book) {
     return <div>Loading book details...</div>;
   }
-
   return (
     <div className='container book-detail-sec'>
-      <Navbar />
+      <Navbar path={`${book.name}/${book._id}`} />
       <div className='book-bio'>
         <img src={book.image} alt='book' />
         <div className='book-metadata'>
@@ -47,6 +45,8 @@ function BookDetail() {
       </div>
     </div>
   );
+  
 }
+
 
 export default BookDetail;
