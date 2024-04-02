@@ -1,12 +1,16 @@
-import React from 'react'
+import React from 'react';
+
+import Navbar from '../navbar/Navbar';
 
 function Cart() {
   return (
+    <>
+    <Navbar paths={[{ href: '/', text: 'Home' }, { href: '/cart', text: 'Cart' }]} />
     <div className='container cart-sec'>
-
+      
       <div>
         <h2 style={{ textAlign: 'center' }}>Shopping Cart</h2>
-        <hr />
+        {/* <hr /> */}
         <div className='table cart-items'>
           <table>
           <tbody>
@@ -51,6 +55,7 @@ function Cart() {
       </div>
 
     </div>
+    </>
   )
 }
 

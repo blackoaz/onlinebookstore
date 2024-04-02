@@ -25,7 +25,8 @@ function BookDetail() {
   }
   return (
     <div className='container book-detail-sec'>
-      <Navbar path={`${book.name}/${book._id}`} />
+      <Navbar paths={[{ href: '/', text: 'Home' }, { href: `/specificbook/${book._id}`, text: 'book' }]} />
+      {/* <Navbar path={`${book.name}/${book._id}`} /> */}
       <div className='book-bio'>
         <img src={book.image} alt='book' />
         <div className='book-metadata'>
