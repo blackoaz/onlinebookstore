@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import './App.css'
 import LoginPage from './auth/LoginPage'
@@ -12,7 +13,8 @@ import Shoppingcart from './shoppingcart/Cart'
 
 
 function App() {
-  const isloggedIn = false;
+  const isloggedIn = useSelector((state) => state.authentication.isAuthenticated);
+  console.log(isloggedIn)
   const [cartItems, setCartItems] = useState([]);
 
   function addToCart(item){
