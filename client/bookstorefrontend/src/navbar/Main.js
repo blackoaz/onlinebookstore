@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-
-export default function Main() {
-
+export default function Main({ addToCart }) {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -20,10 +18,6 @@ export default function Main() {
       .catch((error) => console.error('Error fetching data:', error));
   }, [books]);
 
-  const addingtoCart = () => {
-    console.log("Item added to cart")
-  }
-
   function truncateText(text, maxLength) {
     if (text.length > maxLength) {
       return text.substring(0, maxLength) + '...';
@@ -31,6 +25,17 @@ export default function Main() {
       return text;
     }
   }
+
+  const addToCartFunction = (book) => {
+    // Call addToCart function passed from the Main component
+    addToCart({
+      name: book.name,
+      author: book.author,
+      price: book.price,
+      image: book.image
+    });
+  };
+
   return (
     <>
       <div className='main-sec'>
@@ -56,7 +61,7 @@ export default function Main() {
                   </div>
                 </Link>
                 <div className='add-cart'>
-                  <button onClick={addingtoCart}>ADD TO CART</button>
+                  <button onClick={() => addToCartFunction(book)}>ADD TO CART</button>
                 </div>
               </div>
             )): <div>
@@ -67,5 +72,5 @@ export default function Main() {
 
       </div>
     </>
-  )
+  );
 }

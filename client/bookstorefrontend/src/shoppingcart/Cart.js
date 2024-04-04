@@ -1,18 +1,18 @@
 import React from 'react';
-
 import Navbar from '../navbar/Navbar';
 
-function Cart() {
-  return (
+function Cart({ cartItems, removeFromCart }) {
+  
+  const handleRemoveItem = (index) => {
+    removeFromCart(index);
+  };
+    return (
     <>
-    <Navbar paths={[{ href: '/', text: 'Home' }, { href: '/cart', text: 'Cart' }]} />
+    <Navbar paths={[{ href: '/', text: 'Home' }, { href: '/cart', text: 'Cart' }]} cartItems={cartItems} />
     <div className='container cart-sec'>
-      
-      <div>
-        <h2 style={{ textAlign: 'center' }}>Shopping Cart</h2>
-        {/* <hr /> */}
-        <div className='table cart-items'>
-          <table>
+      <h2 style={{ textAlign: 'center' }}>Shopping Cart</h2>
+      <div className='table cart-items'>
+        <table>
           <tbody>
             <tr>
               <th>Image</th>
@@ -23,40 +23,27 @@ function Cart() {
               <th>Total</th>
               <th>Remove</th>
             </tr>
-            <tr>
-              <td>
-                <div className='cart-img'>
-                  <img src='https://via.placeholder.com/150' alt='book' />
-                </div>
-              </td>
-              <td>Book Title</td>
-              <td><span>Author</span></td>
-              <td>KSH. 200</td>
-              <td>1</td>
-              <td>KSH. 200</td>
-              <td><button>Remove</button></td>
-            </tr>
-            <tr>
-              <td>
-                <div className='cart-img'>
-                  <img src='https://via.placeholder.com/150' alt='book' />
-                </div>
-              </td>
-              <td>Book Title</td>
-              <td><span>Author</span></td>
-              <td>KSH. 200</td>
-              <td>1</td>
-              <td>KSH. 200</td>
-              <td><button>Remove</button></td>
-            </tr>
+            {cartItems.map((item, index) => (
+              <tr key={index}>
+                <td>
+                  <div className='cart-img'>
+                    <img src={item.image} alt='book' />
+                  </div>
+                </td>
+                <td>{item.name}</td>
+                <td><span>{item.author}</span></td>
+                <td>KSH. {item.price}</td>
+                <td>1</td>
+                <td>KSH. {item.price}</td>
+                <td><button onClick={handleRemoveItem}>Remove</button></td>
+              </tr>
+            ))}
           </tbody>
-          </table>
-        </div>
+        </table>
       </div>
-
-    </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default Cart
+export default Cart;
