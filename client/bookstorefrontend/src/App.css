@@ -5,51 +5,73 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: "Kadwa", serif;
+  background-color: #D9D9D9; 
 }
 
+.home-sec{
+  position: relative;
 
+}
+
+.main-app h1{
+  background-color: #fff;
+
+}
 .main-head{
   text-align: center;
   color:#000000;
   font-size: 36px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
-.navbar{
-  margin-bottom:10px;
-  background-color:#D9D9D9;
+
+.main-bar{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  position: absolute;
+  margin: auto;
+  left: 50px;
+  top: 40px;
+  background-color:#fff;
+  margin: 0px 10px 0px 10px;
+  width:100%;
 }
+
+.font-icon{
+  font-size: 24px;
+  color:#68b2f7;
+  position: relative;
+}
+
+.shopping-cart span{
+  position: absolute;
+  background-color: rgb(239, 99, 99);
+  border-radius: 50%;
+  top: 0px;
+  left: auto;
+  right: 2px;
+  color: #000000;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  z-index: 1;}
+
 .sidebar{
   height: 100vh;
   width: 300px;
-  background-color: #D9D9D9;
+  background-color: #fff;
   position: absolute;
   left: 60px;
+  top: 100px;
   
 }
 
-.main-sec{
-  position: absolute;
-  left: 360px;
-  border: none;
+.sidebar .books-category{
   background-color: #fff;
-
 }
 
-.main-heading{
-  margin: 12px 0 0 12px;
-
-}
-.main-heading hr{
-  color:#000000;
-  width: 984px;
-}
-
-.main-heading h2{
-  font-size: 32px;
-  color:#000000;
-}
-
-.category{
+.sidebar .category{
   color:#3CC1FA;
   font-weight: bold;
   font-size: 20px;
@@ -57,21 +79,77 @@
   padding: 12px;
   line-height: auto;
   text-align: left;
+  background-color: #fff;
 
+}
+
+.category h4{
+  background-color: #fff;
+}
+
+.category-list ul{
+  background-color: #fff;
 }
 .category-list ul li{
   margin-left: 26px;
   color:#3CC1FA;
   margin-bottom: 16px;
+  background-color: #fff;
 }
 
-.row{
-  display: grid;
-  grid-template-columns: repeat(4, 100px );
+.category-list ul li:hover{
+  cursor: pointer;
 }
-.col img{
+
+.main-sec{
+  position: absolute;
+  top: 100px;
+  left: 380px;
+  background-color: #fff;
+  height: 100vh;
+
+}
+
+.main-sec .main-heading{
+  margin: 12px 0 0 12px;
+  background-color: #fff;
+
+}
+.main-heading hr{
+  color:#000000;
+  width: 984px;
+}
+
+.main-sec .main-heading h2{
+  font-size: 32px;
+  color:#000000;
+  background-color: #fff;
+}
+
+
+
+.main-sec .row{
+  display: grid;
+  grid-template-columns: repeat(4, 228px );
+  gap: 18px;
+  background-color: #fff;
+}
+
+.col{
+  background-color: #fff;
+}
+.book-img{
+  background-color: #fff;
+}
+.book-img img{
   height: 200px;
   width: 160px;
+}
+
+.book-rating{
+  background-color: #fff;
+  padding:12px;
+  margin: 6px;
 }
 
 .add-cart button{
@@ -91,4 +169,155 @@
 .price{
   font-size: 20px;
   color:#000000;
+  background-color: #fff;
 }
+
+.login-page{
+  margin: 150px auto auto auto;
+  background-color: rgb(232, 230, 230);
+  text-align: center;
+  height: 280px;
+  width: 400px;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.login-username input{
+  padding: 8px;
+  border: 12px;
+  border: none;
+  width: 100%;
+  text-align: center;
+} 
+
+.login-passwd input{
+  padding: 8px;
+  border: 12px;
+  border: none;
+  width: 100%;
+  text-align: center;
+}
+
+.login-btn button{
+  background-color: #357EBD;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  width: 200px;
+  height: 40px;
+  margin: auto;
+  border: none;
+  color: #fff;
+
+}
+
+.login-btn button:hover{
+  background-color: #a9d3f8;
+}
+
+.link-to{
+  text-decoration: none;
+}
+
+.book-detail-sec{
+  background-color: #fff;
+  padding: 24px;
+  margin: auto;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.book-bio{
+  display: grid;
+  grid-template-columns: repeat(2,1fr 2fr);
+  background-color: #fff;
+
+}
+
+.book-bio img{
+  float: left;
+  width: 500px;
+  height: 400px;
+}
+
+.book-metadata{
+  background-color: #fff;
+  padding: 12px;
+}
+
+.book-metadata h3{
+  background-color: #fff;
+}
+
+.book-price{
+  background-color: #fff;
+  color: rgb(159, 206, 89);
+  font-size: 32px;
+}
+.stock-available{
+  background-color: #fff;
+}
+
+span{
+  background-color: #fff;
+}
+
+.book-desc{
+  margin-top: 24px;
+  background-color: #fff;
+}
+
+.book-desc h2{
+  background-color: #fff;
+}
+
+.book-desc p{
+  background-color: #fff;
+}
+/* table css */
+.cart-items {
+  background-color: #fff;
+  padding: 24px;
+  width: 100%;
+  margin-top: 60px;
+}
+
+table {
+  width: 100%;
+  table-layout: auto; /* Adjusts column widths based on content */
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+  width: auto; /* Allows columns to adjust according to content */
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.cart-img img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+a{
+  text-decoration: none;
+}
+
