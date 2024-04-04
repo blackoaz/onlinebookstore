@@ -12,7 +12,7 @@ import Shoppingcart from './shoppingcart/Cart'
 
 
 function App() {
-  const isloggedIn = true;
+  const isloggedIn = false;
   const [cartItems, setCartItems] = useState([]);
 
   function addToCart(item){

@@ -4,8 +4,8 @@ function LoginPage() {
     
   return (
     <div className='container login-page'>
-        <div>
-            <form>
+        <div className='login-form'>
+            <form className='form-sec'>
                 <h3>LOGIN PAGE</h3>
                 <div className='login-username'>
                 <label>Enter Your Username</label><br />
