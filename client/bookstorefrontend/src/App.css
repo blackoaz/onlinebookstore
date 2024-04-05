@@ -42,6 +42,12 @@
   font-size: 24px;
   color:#68b2f7;
   position: relative;
+  
+}
+
+.shopping-cart,.font-icon,.main-bar-title, .link-text,.cart-icon{
+  background-color: #fff;
+
 }
 
 .shopping-cart span{
