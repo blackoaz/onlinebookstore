@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Main({ addToCart }) {
+export default function Main({ addToCart, selectedCategory }) {
   const [books, setBooks] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/books', {
-      method: 'GET',
+    // Fetch books and categories
+    Promise.all([
+      fetch('http://localhost:3001/api/books').then(res => res.json()),
+      fetch('http://localhost:3001/api/category').then(res => res.json())
+    ])
+    .then(([booksData, categoriesData]) => {
+      setBooks(booksData);
+      setCategories(categoriesData);
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((result) => setBooks(result))
-      .catch((error) => console.error('Error fetching data:', error));
-  }, [books]);
+    .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   function truncateText(text, maxLength) {
     if (text.length > maxLength) {
@@ -27,7 +27,6 @@ export default function Main({ addToCart }) {
   }
 
   const addToCartFunction = (book) => {
-    // Call addToCart function passed from the Main component
     addToCart({
       name: book.name,
       author: book.author,
@@ -35,6 +34,12 @@ export default function Main({ addToCart }) {
       image: book.image
     });
   };
+
+  const normalizedCategory = selectedCategory ? selectedCategory.toLowerCase().trim() : null;
+  const filteredBooks = normalizedCategory ? books.filter(book => {
+    const bookCategory = categories.find(category => category._id === book.category);
+    return bookCategory && bookCategory.categoryName.toLowerCase().trim() === normalizedCategory;
+  }) : books;
 
   return (
     <>
@@ -46,7 +51,7 @@ export default function Main({ addToCart }) {
 
         <div className='container text-center books-sec'>
           <div className='row books'>
-            {books ? books.map((book, _id) => (
+            {filteredBooks.map((book, _id) => (
               <div className='col' key={_id}>
                 <Link to={`/specificbook/${book._id}`} className='link-to'>
                   <div className='book-img'>
@@ -64,9 +69,7 @@ export default function Main({ addToCart }) {
                   <button onClick={() => addToCartFunction(book)}>ADD TO CART</button>
                 </div>
               </div>
-            )): <div>
-            <p>Loading data...</p>
-          </div> }   
+            ))}
           </div>
         </div>
 

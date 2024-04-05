@@ -11,18 +11,18 @@ export default function Navbar(props) {
 
   return (
     <div className="container main-bar">
-      <div>
+      <div className='main-bar-title'>
         {paths.map((path, index) => (
           <React.Fragment key={index}>
-            <Link to={path.href}>{path.text}</Link>
-            {index !== paths.length - 1 && ' / '} {/* Add separator between links */}
+            <Link to={path.href} className='link-text'>{path.text}</Link>
+            {index !== paths.length - 1 && ' / '}
           </React.Fragment>
         ))}
       </div>
 
       <div className='shopping-cart'>
         <span>{cartItems.length}</span>
-        <Link to={'/cart'}>
+        <Link to={'/cart'} className='cart-icon'>
           <FontAwesomeIcon icon={faCartShopping} className="font-icon"/>
         </Link>
       </div>
